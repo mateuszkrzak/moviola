@@ -1,0 +1,12 @@
+{
+  "name": "moviola",
+  "version": "0.0.1",
+  "description": "Training react app",
+  "main": "index.js",
+  "repository": "https://github.com/mateuszkrzak/moviola.git",
+  "author": "matkrzak@outlook.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
