@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = env => ({
   context: path.join(__dirname, 'src'),
 
-  entry: './bootstrap.jsx',
+  entry: ['babel-polyfill', './bootstrap.jsx'],
 
   mode: env.production ? 'production' : 'development',
 
@@ -37,6 +37,18 @@ module.exports = env => ({
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader',
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+            },
+          },
+        ],
       },
     ],
   },

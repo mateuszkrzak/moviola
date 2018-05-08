@@ -12,9 +12,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
     "jest": "^22.4.3",
     "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-css-modules": "^4.7.2",
     "react-dom": "^16.3.2",
@@ -28,6 +30,7 @@
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -41,6 +44,7 @@
     "eslint-plugin-react": "7.4.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.2.0",
     "node-sass": "^4.9.0",
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": "^16.3.2",
