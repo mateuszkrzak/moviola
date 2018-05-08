@@ -1,7 +1,25 @@
 @import "../../common/variables.scss";
 
 .wrapper {
-  color: rgba($color: #38493b, $alpha: 0.25);
-  background-image: url("../../../assets/tape.jpg");
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  color: #eeeeee;
+  background-image: url("../../../assets/search_bg.png");
   background-size: cover;
+  padding: 1em 2em;
+}
+
+.find-button {
+  padding: 10px 50px;
+  background-color: $pink;
+  margin-left: auto;    
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }

@@ -12,7 +12,7 @@ class ReleaseYear extends React.Component {
   formatYear = date => new Date(date).getFullYear();
 
   render() {
-    return <h3 styleName="title">{this.formatYear(this.props.releaseDate)} </h3>;
+    return <span styleName="title">{this.formatYear(this.props.releaseDate)} </span>;
   }
 }
 

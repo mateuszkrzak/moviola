@@ -4,10 +4,10 @@ import CSSModules from 'react-css-modules';
 import styles from './SearchFilters.scss';
 
 const SearchFilters = () => (
-  <React.Fragment>
-    <h3>Search by</h3>
-    <button>Title</button>
-    <button>Genre</button>
-  </React.Fragment>
+  <div styleName="wrapper">
+    <span styleName="title">Search by</span>
+    <button className="standard-button">Title</button>
+    <button className="standard-button" styleName="active">Genre</button>
+  </div>
 );
 export default CSSModules(SearchFilters, styles);

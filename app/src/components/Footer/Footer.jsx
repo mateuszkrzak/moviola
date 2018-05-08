@@ -7,7 +7,9 @@ import styles from './Footer.scss';
 
 const Footer = () => (
   <footer styleName="wrapper">
-    <Logo />
+    <div styleName="content">
+      <Logo />
+    </div>
   </footer>
 );
 export default CSSModules(Footer, styles);

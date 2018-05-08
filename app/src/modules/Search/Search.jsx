@@ -19,15 +19,17 @@ class Search extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <main styleName="wrapper">
+      <div styleName="wrapper">
+        <main styleName="header">
           <Logo />
           <SearchBar />
-          <SearchFilters />
-          <button>Find</button>
+          <div styleName="actions">
+            <SearchFilters />
+            <button className="standard-button" styleName="find-button">Find</button>
+          </div>
         </main>
         <MovieList movies={this.state.data} />
-      </React.Fragment>
+      </div>
     );
   }
 }

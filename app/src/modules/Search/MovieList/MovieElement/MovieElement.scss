@@ -2,9 +2,7 @@
   margin: 0 auto;
 }
 
-.genres {
-  text-transform: uppercase;
-}
-
-.title {
+.row {
+  display: flex;
+  align-items: center;
 }

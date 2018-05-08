@@ -1,0 +1,19 @@
+@import "../../../common/variables.scss";
+
+.wrapper {
+  display: inline;
+
+  .standard-button:last-child {
+    margin-right: 0;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.active {
+  background: $pink;  
+}

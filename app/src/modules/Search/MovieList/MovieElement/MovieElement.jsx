@@ -18,8 +18,10 @@ class MovieList extends React.Component {
     return (
       <div styleName="wrapper">
         <Poster src={this.props.movie.poster_path} title={this.props.movie.title} />
-        <Title title={this.props.movie.title} />
-        <ReleaseYear releaseDate={this.props.movie.release_date} />
+        <div styleName="row">
+          <Title title={this.props.movie.title} />
+          <ReleaseYear releaseDate={this.props.movie.release_date} />
+        </div>
         <Genres genres={this.props.movie.genres} />
       </div>
     );

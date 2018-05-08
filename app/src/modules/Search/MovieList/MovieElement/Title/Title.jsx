@@ -10,7 +10,7 @@ class Title extends React.Component {
   };
 
   render() {
-    return <h3 styleName="title">{this.props.title} </h3>;
+    return <span styleName="title">{this.props.title} </span>;
   }
 }
 
