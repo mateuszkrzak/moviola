@@ -1,10 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = env => ({
-  context: path.join(__dirname, 'src'),
+const CSSModulesFormat = '[name]_[local]__[hash:base64:5]';
 
-  entry: ['babel-polyfill', './bootstrap.jsx'],
+module.exports = env => ({
+  entry: ['babel-polyfill', './app/src/bootstrap.jsx'],
 
   mode: env.production ? 'production' : 'development',
 
@@ -20,12 +20,31 @@ module.exports = env => ({
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+        options: {
+          presets: ['env', 'react'],
+          plugins: [
+            [
+              'react-css-modules',
+              {
+                filetypes: { '.scss': { syntax: 'postcss-scss' } },
+                generateScopedName: CSSModulesFormat,
+                webpackHotModuleReloading: true,
+              },
+            ],
+            [
+              'transform-class-properties',
+              {
+                spec: true,
+              },
+            ],
+          ],
+        },
       },
       {
         test: /\.scss$/,
         loaders: [
           'style-loader?sourceMap',
-          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          `css-loader?modules&importLoader=1&localIdentName=${CSSModulesFormat}`,
           'resolve-url-loader',
           'sass-loader?sourceMap',
         ],

@@ -1,4 +1,4 @@
-@import "./common/variables.scss";
+@import "./common/styles/variables.scss";
 
 html,
 body {
@@ -22,5 +22,5 @@ body {
   margin-right: 10px;
   color: #eeeeee;
   text-transform: uppercase;
-  border-radius: 3px;  
+  border-radius: 3px;
 }

@@ -1,17 +1,19 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
 
 import 'typeface-roboto'; // eslint-disable-line
 import styles from './App.scss';
-import Footer from './components/Footer/Footer';
-import Search from './modules/Search/Search';
+import Footer from './common/components/Footer/Footer';
+import ErrorBoundary from './common/components/ErrorBoundary/ErrorBoundary';
+import Search from './containers/Search/Search';
 
 const App = () => (
   <section styleName="wrapper">
-    <Search />
-    {/* <MovieDetails /> */}
-    <Footer />
+    <ErrorBoundary>
+      <Search />
+      {/* <MovieDetails /> */}
+      <Footer />
+    </ErrorBoundary>
   </section>
 );
 
-export default CSSModules(App, styles);
+export default App;

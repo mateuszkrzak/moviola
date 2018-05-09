@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.no-results {
+  font-size: 44px;
+  margin-top: 5em;
+  text-align: center;
+}
