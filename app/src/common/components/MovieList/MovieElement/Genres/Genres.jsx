@@ -8,10 +8,8 @@ class Genres extends React.Component {
     genres: [],
   };
 
-  formatGenres = genres => genres.join(' & ');
-
   render() {
-    return <span styleName="genre"> {this.formatGenres(this.props.genres)} </span>;
+    return <span styleName="genre"> {this.props.genres.join(' & ')} </span>;
   }
 }
 

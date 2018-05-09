@@ -4,13 +4,14 @@ import 'typeface-roboto'; // eslint-disable-line
 import styles from './App.scss';
 import Footer from './common/components/Footer/Footer';
 import ErrorBoundary from './common/components/ErrorBoundary/ErrorBoundary';
-import Search from './containers/Search/Search';
+import SearchPage from './containers/SearchPage/SearchPage';
+import MovieDetailsPage from './containers/MovieDetailsPage/MovieDetailsPage';
 
 const App = () => (
   <section styleName="wrapper">
     <ErrorBoundary>
-      <Search />
-      {/* <MovieDetails /> */}
+      {/* <SearchPage /> */}
+      <MovieDetailsPage />
       <Footer />
     </ErrorBoundary>
   </section>

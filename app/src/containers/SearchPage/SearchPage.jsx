@@ -1,13 +1,14 @@
 import React from 'react';
 
-import styles from './Search.scss';
+import styles from './SearchPage.scss';
 import Logo from '../../common/components/Logo/Logo';
 import SearchBar from './SearchBar/SearchBar';
 import SearchFilters from './SearchFilters/SearchFilters';
-import mockedResponse from './mockedResponse';
-import MovieList from './MovieList/MovieList';
+import mockedResponse from '../../mockedResponse';
+import MovieList from '../../common/components/MovieList/MovieList';
+import MovieListOptions from './MovieListOptions/MovieListOptions';
 
-export default class Search extends React.Component {
+export default class SearchPage extends React.Component {
   state = {
     data: mockedResponse.data,
   };
@@ -25,6 +26,7 @@ export default class Search extends React.Component {
             </button>
           </div>
         </main>
+        <MovieListOptions moviesCount={this.state.data.length} />
         <MovieList movies={this.state.data} />
       </div>
     );
