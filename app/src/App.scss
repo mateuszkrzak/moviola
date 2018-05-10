@@ -14,13 +14,3 @@ body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
 }
-
-:global(.standard-button) {
-  border: none;
-  background: $gray;
-  padding: 5px 12px;
-  margin-right: 10px;
-  color: #eeeeee;
-  text-transform: uppercase;
-  border-radius: 3px;
-}

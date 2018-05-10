@@ -1,6 +1,21 @@
 export default {
   data: [
     {
+      id: 297802,
+      title: 'Aquaman',
+      tagline: '',
+      vote_average: 8.5,
+      vote_count: 10,
+      release_date: '2018-12-19',
+      poster_path: 'https://image.tmdb.org/t/p/w500/sshNRCbtU2ON8SiWLycQzr05doX.jpg',
+      overview:
+        'Following the events of Justice League, Arthur Curry, the reluctant ruler of the underwater kingdom of Atlantis, is caught between surface dwellers and his own people who are ready to lash out and invade the surface.',
+      budget: 160000000,
+      revenue: 0,
+      genres: ['Action', 'Fantasy', 'Science Fiction'],
+      runtime: 132,
+    },
+    {
       id: 447365,
       title: 'Guardians of the Galaxy Vol. 3',
       tagline: '',
@@ -84,21 +99,6 @@ export default {
       budget: 0,
       revenue: 0,
       genres: ['Action', 'Fantasy'],
-      runtime: null,
-    },
-    {
-      id: 297802,
-      title: 'Aquaman',
-      tagline: '',
-      vote_average: 0,
-      vote_count: 0,
-      release_date: '2018-12-19',
-      poster_path: 'https://image.tmdb.org/t/p/w500/sshNRCbtU2ON8SiWLycQzr05doX.jpg',
-      overview:
-        'Following the events of Justice League, Arthur Curry, the reluctant ruler of the underwater kingdom of Atlantis, is caught between surface dwellers and his own people who are ready to lash out and invade the surface.',
-      budget: 160000000,
-      revenue: 0,
-      genres: ['Action', 'Fantasy', 'Science Fiction'],
       runtime: null,
     },
     {

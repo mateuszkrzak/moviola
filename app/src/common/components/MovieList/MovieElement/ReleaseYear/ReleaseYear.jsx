@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ReleaseYear.scss';
+import './ReleaseYear.scss';
 
-class ReleaseYear extends React.Component {
+import formatYear from '../../../../utils/format-year';
+
+export default class ReleaseYear extends React.Component {
   static defaultProps = {
     releaseDate: 'No release date provided',
   };
 
-  formatYear = date => new Date(date).getFullYear();
+  static propTypes = {
+    releaseDate: PropTypes.string,
+  };
 
   render() {
-    return <span styleName="title">{this.formatYear(this.props.releaseDate)} </span>;
+    return <span styleName="title">{formatYear(this.props.releaseDate)} </span>;
   }
 }
-
-ReleaseYear.propTypes = {
-  releaseDate: PropTypes.string,
-};
-
-export default ReleaseYear;

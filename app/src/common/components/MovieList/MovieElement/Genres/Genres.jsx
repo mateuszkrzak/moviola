@@ -1,20 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Genres.scss';
+import './Genres.scss';
 
-class Genres extends React.Component {
+export default class Genres extends React.Component {
   static defaultProps = {
     genres: [],
+  };
+  static propTypes = {
+    genres: PropTypes.arrayOf(PropTypes.string),
   };
 
   render() {
     return <span styleName="genre"> {this.props.genres.join(' & ')} </span>;
   }
 }
-
-Genres.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string),
-};
-
-export default Genres;

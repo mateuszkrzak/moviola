@@ -2,7 +2,7 @@ import React from 'react';
 
 import Logo from '../Logo/Logo';
 
-import styles from './Footer.scss';
+import './Footer.scss';
 
 const Footer = () => (
   <footer styleName="wrapper">

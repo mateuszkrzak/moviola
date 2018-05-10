@@ -1,7 +1,7 @@
 import React from 'react';
 
 import 'typeface-roboto'; // eslint-disable-line
-import styles from './App.scss';
+import './App.scss';
 import Footer from './common/components/Footer/Footer';
 import ErrorBoundary from './common/components/ErrorBoundary/ErrorBoundary';
 import SearchPage from './containers/SearchPage/SearchPage';

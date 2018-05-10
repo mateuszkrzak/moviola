@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ErrorBoundary.scss';
+import './ErrorBoundary.scss';
 
 class ErrorBoundary extends React.Component {
   static defaultProps = {

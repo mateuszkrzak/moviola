@@ -1,17 +1,5 @@
 @import "../../common/styles/variables.scss";
 
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.header {
-  color: #eeeeee;
-  background-image: url("../../../assets/search_bg.png");
-  background-size: cover;
-  padding: 1em 2em;
-}
-
 .find-button {
   padding: 10px 50px;
   background-color: $pink;

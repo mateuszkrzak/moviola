@@ -1,10 +1,11 @@
 import React from 'react';
 
-import styles from './MovieDetailsPage.scss';
+import './MovieDetailsPage.scss';
 import Logo from '../../common/components/Logo/Logo';
 import mockedResponse from '../../mockedResponse';
 import MovieList from '../../common/components/MovieList/MovieList';
 import MovieListTitle from './MovieListTitle/MovieListTitle';
+import MovieDetails from './MovieDetails/MovieDetails';
 
 export default class MovieDetailsPage extends React.Component {
   state = {
@@ -13,9 +14,13 @@ export default class MovieDetailsPage extends React.Component {
 
   render() {
     return (
-      <div styleName="wrapper">
-        <main styleName="header">
-          <Logo />
+      <div className="page-wrapper">
+        <main className="page-header">
+          <div styleName="header-wrapper">
+            <Logo />
+            <button styleName="search-button">Search</button>
+          </div>
+          <MovieDetails movie={this.state.data[0]} />
         </main>
         <MovieListTitle genre={this.state.data[0].genres.join(' & ')} />
         <MovieList movies={this.state.data} />

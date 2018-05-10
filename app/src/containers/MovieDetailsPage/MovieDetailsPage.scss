@@ -1,25 +1,16 @@
 @import "../../common/styles/variables.scss";
 
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.header {
-  color: #eeeeee;
-  background-image: url("../../../assets/search_bg.png");
-  background-size: cover;
-  padding: 1em 2em;
-}
-
-.find-button {
-  padding: 10px 50px;
-  background-color: $pink;
-  margin-left: auto;
-}
-
-.actions {
-  margin-top: 10px;
+.header-wrapper {
   display: flex;
-  align-items: center;
+}
+
+.search-button {
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 0;
+  border-radius: 3px;
+  padding: 12px 20px;
+  background-color: $lightgray;
+  color: $pink;
+  margin-left: auto;
 }

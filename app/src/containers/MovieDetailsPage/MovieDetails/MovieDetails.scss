@@ -1,0 +1,54 @@
+@import "../../../common/styles/variables.scss";
+
+.center-vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 2em 0;
+}
+
+.title {
+  color: $pink;
+  font-size: 44px;
+  font-weight: 500;
+}
+
+.rating {
+  border-radius: 100%;
+  border: 1px solid #eeeeee;
+  padding: 12px;
+  margin-left: 1em;
+}
+
+.cover {
+  height: 350px;
+}
+
+.info {
+  margin-left: 3em;
+
+  div {
+    margin-bottom: 1em;
+  }
+}
+
+.year,
+.duration {
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.duration {
+  margin-left: 2em;
+}
+
+.overview {
+  padding-right: 2em;
+  font-weight: 300;
+  line-height: 26px;
+}

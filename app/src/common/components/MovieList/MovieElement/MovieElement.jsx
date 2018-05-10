@@ -1,16 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MovieElement.scss';
+import './MovieElement.scss';
 
 import Poster from './Poster/Poster';
 import Genres from './Genres/Genres';
 import Title from './Title/Title';
 import ReleaseYear from './ReleaseYear/ReleaseYear';
 
-class MovieList extends React.Component {
+export default class MovieList extends React.Component {
   static defaultProps = {
     movie: {},
+  };
+
+  static propTypes = {
+    movie: PropTypes.shape({
+      title: PropTypes.string,
+      release_date: PropTypes.string,
+      poster_path: PropTypes.string,
+      genres: PropTypes.arrayOf(PropTypes.string),
+    }),
   };
 
   render() {
@@ -26,14 +35,3 @@ class MovieList extends React.Component {
     );
   }
 }
-
-MovieList.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string,
-    release_date: PropTypes.string,
-    poster_path: PropTypes.string,
-    genres: PropTypes.arrayOf(PropTypes.string),
-  }),
-};
-
-export default MovieList;

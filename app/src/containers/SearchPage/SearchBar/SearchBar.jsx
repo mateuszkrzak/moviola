@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './SearchBar.scss';
+import './SearchBar.scss';
 
 const SearchBar = () => (
   <React.Fragment>

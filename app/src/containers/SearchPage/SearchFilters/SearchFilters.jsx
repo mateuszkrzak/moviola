@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './SearchFilters.scss';
+import './SearchFilters.scss';
 
 const SearchFilters = () => (
   <div styleName="wrapper">

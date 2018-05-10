@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MovieListSorter from '../MovieListSorter/MovieListSorter'
-import styles from './MovieListOptions.scss';
+import MovieListSorter from '../MovieListSorter/MovieListSorter';
+import './MovieListOptions.scss';
 
 export default class MovieListOptions extends React.Component {
   static defaultProps = {
@@ -14,7 +14,7 @@ export default class MovieListOptions extends React.Component {
   };
 
   render() {
-    const {moviesCount} = this.props;
+    const { moviesCount } = this.props;
 
     return (
       <div styleName="wrapper">

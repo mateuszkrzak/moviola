@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MovieList.scss';
+import './MovieList.scss';
 
 import MovieElement from './MovieElement/MovieElement';
 
-class MovieList extends React.Component {
+export default class MovieList extends React.Component {
   static defaultProps = {
     movies: [],
   };
@@ -26,5 +26,3 @@ class MovieList extends React.Component {
     );
   }
 }
-
-export default MovieList;

@@ -1,14 +1,12 @@
 import React from 'react';
 
-import styles from './MovieListSorter.scss';
+import './MovieListSorter.scss';
 
 const MovieListSorter = () => (
   <div styleName="wrapper">
     <span styleName="title">Sort by</span>
-    <a styleName="sort-type">release date</a>
-    <a styleName="sort-type" styleName="active">
-      rating
-    </a>
+    <span styleName="sort-type">release date</span>
+    <span styleName="sort-type active">rating</span>
   </div>
 );
 export default MovieListSorter;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MovieListTitle.scss';
+import './MovieListTitle.scss';
 
 export default class MovieListTitle extends React.Component {
   static defaultProps = {
