@@ -11,6 +11,15 @@
     "dev": "webpack-dev-server --env.development --config ./app/webpack.config.js",
     "test": "jest"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
@@ -44,6 +53,7 @@
     "eslint-plugin-react": "7.4.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^4.2.0",
     "node-sass": "^4.9.0",
     "postcss-scss": "^1.0.5",
