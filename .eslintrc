@@ -2,6 +2,9 @@
   "parser": "babel-eslint",
   "extends": ["airbnb", "plugin:jest/recommended"],
   "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "react/prop-types": [2, { "skipUndeclared": true }]
+  },
   "env": {
     "browser": true
   }
