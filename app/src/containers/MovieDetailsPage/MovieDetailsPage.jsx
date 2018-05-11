@@ -20,7 +20,7 @@ export default class MovieDetailsPage extends React.Component {
             <Logo />
             <button styleName="search-button">Search</button>
           </div>
-          <MovieDetails movie={this.state.data[0]} />
+          <MovieDetails {...this.state.data[0]} />
         </main>
         <MovieListTitle genre={this.state.data[0].genres.join(' & ')} />
         <MovieList movies={this.state.data} />

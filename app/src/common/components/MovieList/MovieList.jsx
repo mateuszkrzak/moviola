@@ -21,7 +21,7 @@ export default class MovieList extends React.Component {
 
     return (
       <div styleName="list">
-        {this.props.movies.map(movie => <MovieElement key={movie.id} movie={movie} />)}
+        {this.props.movies.map(movie => <MovieElement key={movie.id} {...movie} />)}
       </div>
     );
   }
