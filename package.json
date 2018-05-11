@@ -9,19 +9,42 @@
   "scripts": {
     "build": "webpack --progress --colors --env.production --config ./app/webpack.config.js",
     "dev": "webpack-dev-server --env.development --config ./app/webpack.config.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "jest": {
     "transform": {
-      "^.+\\.js$": "babel-jest",
+      "^.+\\.js?$": "babel-jest",
       "^.+\\.jsx?$": "babel-jest"
     },
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": ["js", "jsx"],
+    "setupFiles": ["./app/test-setup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "moduleDirectories": ["./app/src", "node_modules"],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "app/src/**/*.{js,jsx}",
+      "!app/src/**/*.spec.{js,jsx}",
+      "!app/src/bootstrap.jsx"
+    ],
+    "coverageReporters": ["lcov", "text-summary"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 20,
+        "lines": 20,
+        "statements": 20
+      }
     }
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "express": "^4.16.3",
     "jest": "^22.4.3",
     "normalize.css": "^8.0.0",
@@ -44,7 +67,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "2.7.0",

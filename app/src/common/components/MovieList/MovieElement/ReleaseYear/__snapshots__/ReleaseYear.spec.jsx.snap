@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReleaseYear component renders "No release date provided" if no passed props 1`] = `
+<span
+  styleName="title"
+>
+  No release date provided
+   
+</span>
+`;
+
+exports[`ReleaseYear component renders release year 1`] = `
+<span
+  styleName="title"
+>
+  2018
+   
+</span>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Poster component renders placeholder if no passed props 1`] = `
+<img
+  alt="Poster of No title provided"
+  src="http://via.placeholder.com/500x750"
+  styleName="poster"
+/>
+`;
+
+exports[`Poster component renders release year 1`] = `
+<img
+  alt="Poster of Test title"
+  src="http://url.for.test.title.cover"
+  styleName="poster"
+/>
+`;

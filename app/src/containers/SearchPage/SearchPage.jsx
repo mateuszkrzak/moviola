@@ -4,7 +4,7 @@ import './SearchPage.scss';
 import Logo from '../../common/components/Logo/Logo';
 import SearchBar from './SearchBar/SearchBar';
 import SearchFilters from './SearchFilters/SearchFilters';
-import mockedResponse from '../../mockedResponse';
+import mockedResponse from '../../response.mock';
 import MovieList from '../../common/components/MovieList/MovieList';
 import MovieListOptions from './MovieListOptions/MovieListOptions';
 

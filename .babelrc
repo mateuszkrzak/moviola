@@ -1,15 +1,4 @@
 {
-  "presets": [["env"], "react"],
-  "env": {
-    "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "modules": "commonjs"
-          }
-        ]
-      ]
-    }
-  }
+  "presets": ["react", ["env"]],
+  "plugins": [["transform-class-properties", { "spec": true }]]
 }
