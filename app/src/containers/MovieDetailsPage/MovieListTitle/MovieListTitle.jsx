@@ -1,22 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './MovieListTitle.scss';
 
-export default class MovieListTitle extends React.Component {
-  static defaultProps = {
-    genre: '',
-  };
+const MovieListTitle = ({ genre = 'No genre provided' }) => (
+  <div styleName="wrapper">
+    <span styleName="title">Films by {genre} genre</span>
+  </div>
+);
 
-  static propTypes = {
-    genre: PropTypes.string,
-  };
-
-  render() {
-    return (
-      <div styleName="wrapper">
-        <span styleName="title">Films by {this.props.genre} genre</span>
-      </div>
-    );
-  }
-}
+export default MovieListTitle;

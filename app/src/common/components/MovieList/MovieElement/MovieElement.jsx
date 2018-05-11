@@ -8,30 +8,31 @@ import Genres from './Genres/Genres';
 import Title from './Title/Title';
 import ReleaseYear from './ReleaseYear/ReleaseYear';
 
-export default class MovieList extends React.Component {
-  static defaultProps = {
-    movie: {},
-  };
+const MovieElement = ({
+  title, release_date: releaseDate, poster_path: posterPath, genres,
+}) => (
+  <div styleName="wrapper">
+    <Poster src={posterPath} title={title} />
+    <div styleName="row">
+      <Title title={title} />
+      <ReleaseYear releaseDate={releaseDate} />
+    </div>
+    <Genres {...genres} />
+  </div>
+);
 
-  static propTypes = {
-    movie: PropTypes.shape({
-      title: PropTypes.string,
-      release_date: PropTypes.string,
-      poster_path: PropTypes.string,
-      genres: PropTypes.arrayOf(PropTypes.string),
-    }),
-  };
+MovieElement.defaultProps = {
+  title: '',
+  release_date: '',
+  poster_path: '',
+  genres: [],
+};
 
-  render() {
-    return (
-      <div styleName="wrapper">
-        <Poster src={this.props.movie.poster_path} title={this.props.movie.title} />
-        <div styleName="row">
-          <Title title={this.props.movie.title} />
-          <ReleaseYear releaseDate={this.props.movie.release_date} />
-        </div>
-        <Genres genres={this.props.movie.genres} />
-      </div>
-    );
-  }
-}
+MovieElement.propTypes = {
+  title: PropTypes.string,
+  release_date: PropTypes.string,
+  poster_path: PropTypes.string,
+  genres: PropTypes.arrayOf(PropTypes.string),
+};
+
+export default MovieElement;
