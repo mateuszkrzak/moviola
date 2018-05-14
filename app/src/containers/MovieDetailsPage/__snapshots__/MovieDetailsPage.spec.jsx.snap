@@ -81,6 +81,7 @@ exports[`MovieDetailsPage component renders MovieDetailsPage 1`] = `
     </span>
   </div>
   <div
+    data-qa="movie-list"
     styleName="list"
   >
     <div

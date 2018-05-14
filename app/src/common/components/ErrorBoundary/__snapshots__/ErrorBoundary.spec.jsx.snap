@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorBoundary generates a error message when an error is caught 1`] = `<BuggedComponent />`;
+exports[`ErrorBoundary generates a error message when an error is caught 1`] = `
+<ErrorBoundary>
+  <div
+    className="error"
+  >
+    <div
+      className="container"
+    >
+      <span>
+        There was error:
+        <pre>
+          Test error message
+        </pre>
+      </span>
+      <span>
+        and it occured 
+        
+    in BuggedComponent
+    in ErrorBoundary (created by WrapperComponent)
+    in WrapperComponent
+        .
+      </span>
+    </div>
+  </div>
+</ErrorBoundary>
+`;

@@ -10,6 +10,7 @@ exports[`MovieList component renders "No films found" if passed movies array is 
 
 exports[`MovieList component renders MovieElement components 1`] = `
 <div
+  data-qa="movie-list"
   styleName="list"
 >
   <MovieElement
