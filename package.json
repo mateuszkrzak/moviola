@@ -10,7 +10,8 @@
     "build": "webpack --progress --colors --env.production --config ./app/webpack.config.js",
     "dev": "webpack-dev-server --env.development --config ./app/webpack.config.js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "e2e": "cypress open"
   },
   "jest": {
     "transform": {
@@ -33,10 +34,10 @@
     "coverageReporters": ["lcov", "text-summary"],
     "coverageThreshold": {
       "global": {
-        "branches": 10,
-        "functions": 20,
-        "lines": 20,
-        "statements": 20
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
       }
     }
   },
@@ -67,6 +68,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.11",
+    "cypress": "^2.1.0",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "2.7.0",
