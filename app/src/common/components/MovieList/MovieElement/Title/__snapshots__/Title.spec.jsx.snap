@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title component renders "No title provided" if no passed props 1`] = `
+<span
+  styleName="title"
+>
+  No title provided
+   
+</span>
+`;
+
+exports[`Title component renders title 1`] = `
+<span
+  styleName="title"
+>
+  Test title of movie
+   
+</span>
+`;

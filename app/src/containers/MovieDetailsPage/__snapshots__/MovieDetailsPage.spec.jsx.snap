@@ -1,0 +1,409 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetailsPage component renders MovieDetailsPage 1`] = `
+<div
+  className="page-wrapper"
+>
+  <main
+    className="page-header"
+  >
+    <div
+      styleName="header-wrapper"
+    >
+      <span
+        styleName="title"
+      >
+        netflixroulette
+      </span>
+      <button
+        styleName="search-button"
+      >
+        Search
+      </button>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Cover of Aquaman"
+        src="https://image.tmdb.org/t/p/w500/sshNRCbtU2ON8SiWLycQzr05doX.jpg"
+        styleName="cover"
+      />
+      <div
+        styleName="info"
+      >
+        <div
+          className="row"
+        >
+          <span
+            styleName="title"
+          >
+            Aquaman
+          </span>
+          <span
+            styleName="rating"
+          >
+            8.5
+          </span>
+        </div>
+        <div
+          className="row"
+        >
+          <span
+            styleName="year"
+          >
+            2018
+          </span>
+          <span
+            styleName="duration"
+          >
+            132
+             min
+          </span>
+        </div>
+        <div
+          styleName="overview"
+        >
+          Following the events of Justice League, Arthur Curry, the reluctant ruler of the underwater kingdom of Atlantis, is caught between surface dwellers and his own people who are ready to lash out and invade the surface.
+        </div>
+      </div>
+    </div>
+  </main>
+  <div
+    styleName="wrapper"
+  >
+    <span
+      styleName="title"
+    >
+      Films by 
+      Action & Fantasy & Science Fiction
+       genre
+    </span>
+  </div>
+  <div
+    data-qa="movie-list"
+    styleName="list"
+  >
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Aquaman"
+        src="https://image.tmdb.org/t/p/w500/sshNRCbtU2ON8SiWLycQzr05doX.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Aquaman
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2018
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Fantasy & Science Fiction
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Guardians of the Galaxy Vol. 3"
+        src="https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Guardians of the Galaxy Vol. 3
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2020
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Adventure & Science Fiction
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Transformers 7"
+        src="https://image.tmdb.org/t/p/w500/432BowXw7a4fWXSONxBaFKqvW4f.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Transformers 7
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2019
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Science Fiction & Action & Adventure
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Untitled Avengers"
+        src="https://image.tmdb.org/t/p/w500/aMETsaNNcDc6g5ZatQtVbySnSaA.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Untitled Avengers
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2019
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Adventure & Science Fiction
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Shazam!"
+        src="https://image.tmdb.org/t/p/w500/yUOJHa9XmB1H0iYodG9Kb3YCc9T.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Shazam!
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2019
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Adventure & Fantasy
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of X-Men: Dark Phoenix"
+        src="https://image.tmdb.org/t/p/w500/6qmsupE0opYPIaBGe7T5D2FBzLs.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          X-Men: Dark Phoenix
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2019
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Science Fiction
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Journey 3: From the Earth to the Moon"
+        src="https://image.tmdb.org/t/p/w500/98tbNloMBztAVnWpAznKKVUdi2O.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Journey 3: From the Earth to the Moon
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2018
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Fantasy
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Mission: Impossible - Fallout"
+        src="https://image.tmdb.org/t/p/w500/A2W75CVz9l8gEeWhQiiftlOCkgi.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Mission: Impossible - Fallout
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2018
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Adventure & Action & Thriller
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Jurassic World: Fallen Kingdom"
+        src="https://image.tmdb.org/t/p/w500/ln6d5Okr6VK5vfQVobJTiYxeD0l.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Jurassic World: Fallen Kingdom
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2018
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Adventure & Drama & Thriller
+         
+      </span>
+    </div>
+    <div
+      styleName="wrapper"
+    >
+      <img
+        alt="Poster of Solo: A Star Wars Story"
+        src="https://image.tmdb.org/t/p/w500/uJ6OnE3CzGWq6buLINAbdBqa0gV.jpg"
+        styleName="poster"
+      />
+      <div
+        styleName="row"
+      >
+        <span
+          styleName="title"
+        >
+          Solo: A Star Wars Story
+           
+        </span>
+        <span
+          styleName="title"
+        >
+          2018
+           
+        </span>
+      </div>
+      <span
+        styleName="genre"
+      >
+         
+        Action & Adventure & Family
+         
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './MovieDetailsPage.scss';
 import Logo from '../../common/components/Logo/Logo';
-import mockedResponse from '../../mockedResponse';
+import mockedResponse from '../../response.mock';
 import MovieList from '../../common/components/MovieList/MovieList';
 import MovieListTitle from './MovieListTitle/MovieListTitle';
 import MovieDetails from './MovieDetails/MovieDetails';

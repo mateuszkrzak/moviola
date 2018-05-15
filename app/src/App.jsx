@@ -1,6 +1,5 @@
 import React from 'react';
 
-import 'typeface-roboto'; // eslint-disable-line
 import './App.scss';
 import Footer from './common/components/Footer/Footer';
 import ErrorBoundary from './common/components/ErrorBoundary/ErrorBoundary';
@@ -10,8 +9,7 @@ import MovieDetailsPage from './containers/MovieDetailsPage/MovieDetailsPage';
 const App = () => (
   <section styleName="wrapper">
     <ErrorBoundary>
-      {/* <SearchPage /> */}
-      <MovieDetailsPage />
+      <SearchPage />
       <Footer />
     </ErrorBoundary>
   </section>
