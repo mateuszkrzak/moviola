@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Genres component renders genres 1`] = `
+<span
+  styleName="genre"
+>
+   
+  Test Genre 1 & Test Genre 2
+   
+</span>
+`;

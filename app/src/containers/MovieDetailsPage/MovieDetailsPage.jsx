@@ -1,16 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './MovieDetailsPage.scss';
 import Logo from '../../common/components/Logo/Logo';
-import mockedResponse from '../../response.mock';
 import MovieList from '../../common/components/MovieList/MovieList';
 import MovieListTitle from './MovieListTitle/MovieListTitle';
 import MovieDetails from './MovieDetails/MovieDetails';
 
-export default class MovieDetailsPage extends React.Component {
-  state = {
-    data: mockedResponse.data,
-  };
+import getMovieByIdAndSimilarMoviesAsync from './actions';
+
+export class MovieDetailsPage extends React.Component {
+  componentDidMount() {
+    this.props.getMovieByIdAndSimilarMoviesAsync(5);
+  }
 
   render() {
     return (
@@ -20,11 +22,17 @@ export default class MovieDetailsPage extends React.Component {
             <Logo />
             <button styleName="search-button">Search</button>
           </div>
-          <MovieDetails {...this.state.data[0]} />
+          <MovieDetails {...this.props.movie} />
         </main>
-        <MovieListTitle genre={this.state.data[0].genres.join(' & ')} />
-        <MovieList movies={this.state.data} />
+        <MovieListTitle genre={this.props.movie.genres.join(' & ')} />
+        <MovieList movies={this.props.similarMovies} />
       </div>
     );
   }
 }
+const mapStateToProps = state => ({
+  movie: state.details.movie,
+  similarMovies: state.details.similarMovies,
+});
+
+export default connect(mapStateToProps, { getMovieByIdAndSimilarMoviesAsync })(MovieDetailsPage);

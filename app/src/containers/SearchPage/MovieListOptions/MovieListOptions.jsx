@@ -7,10 +7,16 @@ import './MovieListOptions.scss';
 export default class MovieListOptions extends React.Component {
   static defaultProps = {
     moviesCount: 0,
+    onChange: () => {},
   };
 
   static propTypes = {
     moviesCount: PropTypes.number,
+    onChange: PropTypes.func,
+  };
+
+  handleSortOptionChange = (sortOption) => {
+    this.props.onChange(sortOption);
   };
 
   render() {
@@ -19,7 +25,7 @@ export default class MovieListOptions extends React.Component {
     return (
       <div styleName="wrapper">
         <span styleName="title">{moviesCount} movies found</span>
-        <MovieListSorter />
+        <MovieListSorter onChange={this.handleSortOptionChange} />
       </div>
     );
   }

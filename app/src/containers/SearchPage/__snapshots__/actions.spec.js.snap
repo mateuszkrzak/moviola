@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search actions get movies creates FETCH_MOVIES_FAILURE action when request returns error 1`] = `
+Array [
+  Object {
+    "type": "FETCH_MOVIES_REQUEST",
+  },
+  Object {
+    "payload": "Test error message",
+    "type": "FETCH_MOVIES_FAILURE",
+  },
+]
+`;
+
+exports[`Search actions get movies creates FETCH_MOVIES_SUCCESS action when request is successful 1`] = `
+Array [
+  Object {
+    "type": "FETCH_MOVIES_REQUEST",
+  },
+  Object {
+    "payload": Object {
+      "movies": Array [
+        Object {
+          "genres": Array [
+            "Test genre",
+            "Another test genre",
+          ],
+          "overview": "Test overview",
+          "poster_path": "http://poster.path",
+          "release_date": "2020-10-20",
+          "runtime": 120,
+          "title": "Test tile",
+          "vote_average": 9,
+        },
+        Object {
+          "genres": Array [
+            "Test genre",
+            "Another test genre",
+          ],
+          "overview": "Test overview",
+          "poster_path": "http://poster.path",
+          "release_date": "2020-10-20",
+          "runtime": 120,
+          "title": "Test tile",
+          "vote_average": 9,
+        },
+      ],
+      "moviesCount": 2,
+    },
+    "type": "FETCH_MOVIES_SUCCESS",
+  },
+]
+`;

@@ -9,7 +9,7 @@ import MovieDetailsPage from './containers/MovieDetailsPage/MovieDetailsPage';
 const App = () => (
   <section styleName="wrapper">
     <ErrorBoundary>
-      <SearchPage />
+      <MovieDetailsPage />
       <Footer />
     </ErrorBoundary>
   </section>
