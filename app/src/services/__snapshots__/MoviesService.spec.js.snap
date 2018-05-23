@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies service getMovieById should call axios with passed options 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies",
+      Object {
+        "params": Object {
+          "anotherTestOption": "anotherTestValue",
+          "sortOrder": "desc",
+          "testOption": "testValue",
+        },
+      },
+    ],
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies/1",
+    ],
+  ],
+}
+`;
+
+exports[`Movies service getMovies should call axios with passed options 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies",
+      Object {
+        "params": Object {
+          "anotherTestOption": "anotherTestValue",
+          "sortOrder": "desc",
+          "testOption": "testValue",
+        },
+      },
+    ],
+  ],
+}
+`;
+
+exports[`Movies service getMoviesByGenres should call axios with passed options 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies",
+      Object {
+        "params": Object {
+          "anotherTestOption": "anotherTestValue",
+          "sortOrder": "desc",
+          "testOption": "testValue",
+        },
+      },
+    ],
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies/1",
+    ],
+    Array [
+      "http://react-cdp-api.herokuapp.com/movies",
+      Object {
+        "params": URLSearchParams {
+          Symbol(impl): URLSearchParamsImpl {
+            "_list": Array [
+              Array [
+                "filter",
+                "Test genre",
+              ],
+              Array [
+                "filter",
+                "Another test genre",
+              ],
+            ],
+            "_url": null,
+            Symbol(wrapper): [Circular],
+          },
+        },
+      },
+    ],
+  ],
+}
+`;

@@ -5,7 +5,7 @@ exports[`App component renders search page by default 1`] = `
   styleName="wrapper"
 >
   <ErrorBoundary>
-    <SearchPage />
+    <Connect(MovieDetailsPage) />
     <Footer />
   </ErrorBoundary>
 </section>

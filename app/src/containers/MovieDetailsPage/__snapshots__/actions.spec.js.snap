@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details actions get movie by id and similar movies creates FETCH_MOVIE_BY_ID_SUCCESS and FETCH_MOVIES_BY_GENRES_SUCCESS actions when requests is successful 1`] = `
+Array [
+  Object {
+    "type": "FETCH_MOVIE_BY_ID_REQUEST",
+  },
+  Object {
+    "payload": Object {
+      "genres": Array [
+        "Test genre",
+        "Another test genre",
+      ],
+      "overview": "Test overview",
+      "poster_path": "http://poster.path",
+      "release_date": "2020-10-20",
+      "runtime": 120,
+      "title": "Test tile",
+      "vote_average": 9,
+    },
+    "type": "FETCH_MOVIE_BY_ID_SUCCESS",
+  },
+  Object {
+    "type": "FETCH_MOVIES_BY_GENRES_REQUEST",
+  },
+  Object {
+    "payload": Object {
+      "data": Array [
+        Object {
+          "genres": Array [
+            "Test genre",
+            "Another test genre",
+          ],
+          "overview": "Test overview",
+          "poster_path": "http://poster.path",
+          "release_date": "2020-10-20",
+          "runtime": 120,
+          "title": "Test tile",
+          "vote_average": 9,
+        },
+        Object {
+          "genres": Array [
+            "Test genre",
+            "Another test genre",
+          ],
+          "overview": "Test overview",
+          "poster_path": "http://poster.path",
+          "release_date": "2020-10-20",
+          "runtime": 120,
+          "title": "Test tile",
+          "vote_average": 9,
+        },
+      ],
+      "total": 2,
+    },
+    "type": "FETCH_MOVIES_BY_GENRES_SUCCESS",
+  },
+]
+`;
+
+exports[`Details actions get movie by id and similar movies should catch errors when getMovieById request fails 1`] = `
+Array [
+  Object {
+    "type": "FETCH_MOVIE_BY_ID_REQUEST",
+  },
+  Object {
+    "payload": "getMovieById error message",
+    "type": "FETCH_MOVIE_BY_ID_FAILURE",
+  },
+]
+`;
+
+exports[`Details actions get movie by id and similar movies should catch errors when getMoviesByGenres request fails 1`] = `
+Array [
+  Object {
+    "type": "FETCH_MOVIE_BY_ID_REQUEST",
+  },
+  Object {
+    "payload": Object {
+      "genres": Array [
+        "Test genre",
+        "Another test genre",
+      ],
+      "overview": "Test overview",
+      "poster_path": "http://poster.path",
+      "release_date": "2020-10-20",
+      "runtime": 120,
+      "title": "Test tile",
+      "vote_average": 9,
+    },
+    "type": "FETCH_MOVIE_BY_ID_SUCCESS",
+  },
+  Object {
+    "type": "FETCH_MOVIES_BY_GENRES_REQUEST",
+  },
+  Object {
+    "payload": "getMoviesByGenres error message",
+    "type": "FETCH_MOVIES_BY_GENRES_FAILURE",
+  },
+]
+`;
