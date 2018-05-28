@@ -11,7 +11,16 @@ import getMovieByIdAndSimilarMoviesAsync from './actions';
 
 export class MovieDetailsPage extends React.Component {
   componentDidMount() {
-    this.props.getMovieByIdAndSimilarMoviesAsync(5);
+    this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
+      window.scrollTo(0, 0);
+    }
+
+    return this.props.match.params.id !== prevProps.match.params.id;
   }
 
   render() {
@@ -25,7 +34,7 @@ export class MovieDetailsPage extends React.Component {
           <MovieDetails {...this.props.movie} />
         </main>
         <MovieListTitle genre={this.props.movie.genres.join(' & ')} />
-        <MovieList movies={this.props.similarMovies} />
+        <MovieList movies={this.props.similarMovies.data} />
       </div>
     );
   }

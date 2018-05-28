@@ -14,6 +14,12 @@ module.exports = env => ({
     extensions: ['.js', '.jsx'],
   },
 
+  output: {
+    filename: 'main.js',
+    path: path.join(__dirname, './'),
+    publicPath: '/',
+  },
+
   module: {
     rules: [
       {
@@ -79,11 +85,13 @@ module.exports = env => ({
       template: path.resolve(__dirname, './index.html'),
     }),
   ],
+
   devServer: env.development
     ? {
       contentBase: path.join(__dirname, 'dist'),
       compress: true,
       port: 9000,
+      historyApiFallback: true,
     }
     : {},
 });

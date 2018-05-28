@@ -1,0 +1,12 @@
+@import "../../common/styles/variables.scss";
+
+.page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  font-size: 24px;
+  max-width: 50%;
+}
