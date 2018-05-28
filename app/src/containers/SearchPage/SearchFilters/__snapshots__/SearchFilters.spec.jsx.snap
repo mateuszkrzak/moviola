@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchFilters component  should call on change handler when click on filters 1`] = `
+Array [
+  Array [
+    "genres",
+  ],
+  Array [
+    "title",
+  ],
+]
+`;

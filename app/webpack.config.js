@@ -15,10 +15,12 @@ module.exports = env => ({
   },
 
   output: {
-    filename: 'main.js',
-    path: path.join(__dirname, './'),
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].chunk.js",
+    path: path.join(__dirname, '../dist'),
     publicPath: '/',
   },
+
 
   module: {
     rules: [
@@ -80,7 +82,7 @@ module.exports = env => ({
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: '#2 Webpack',
+      title: '',
       hash: true,
       template: path.resolve(__dirname, './index.html'),
     }),

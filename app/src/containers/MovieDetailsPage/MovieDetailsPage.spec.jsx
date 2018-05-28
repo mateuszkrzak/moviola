@@ -14,16 +14,19 @@ describe('MovieDetailsPage component ', () => {
   };
   const getAsyncMock = jest.fn();
 
-  beforeEach(() => {
-    // pass the mock function as the login prop
-    // wrapper = shallow(<Login login={mockLoginfn} />);
-  });
-
   test('renders MovieDetailsPage', () => {
+    const props = {
+      match: {
+        params: {
+          id: 1
+        }
+      },
+    };
     const component = shallow(<MovieDetailsPage
       movie={mockMovie}
       similarMovies={[mockMovie, mockMovie]}
       getMovieByIdAndSimilarMoviesAsync={getAsyncMock}
+      {...props}
     />);
 
     expect(component).toMatchSnapshot();

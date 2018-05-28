@@ -10,12 +10,15 @@ exports[`SearchPage component  renders SearchPage 1`] = `
     <Logo />
     <SearchBar
       onChange={[Function]}
+      onSubmit={[Function]}
+      value=""
     />
     <div
       styleName="actions"
     >
       <SearchFilters
         onChange={[Function]}
+        value="title"
       />
       <button
         className="standard-button"
@@ -35,4 +38,44 @@ exports[`SearchPage component  renders SearchPage 1`] = `
     movies={Array []}
   />
 </div>
+`;
+
+exports[`SearchPage component  should call api action when change filter option 1`] = `
+Object {
+  "search": "",
+  "searchBy": "filter option",
+  "sortBy": "",
+}
+`;
+
+exports[`SearchPage component  should call api action when change search bar text 1`] = `
+Object {
+  "search": "test search value",
+  "searchBy": "title",
+  "sortBy": "",
+}
+`;
+
+exports[`SearchPage component  should call api action when change sort option 1`] = `
+Array [
+  Array [
+    Object {
+      "search": "",
+      "searchBy": "title",
+      "sortBy": "sort option",
+    },
+  ],
+]
+`;
+
+exports[`SearchPage component  should call api action when click on find button 1`] = `
+Array [
+  Array [
+    Object {
+      "search": "test",
+      "searchBy": "title",
+      "sortBy": "",
+    },
+  ],
+]
 `;

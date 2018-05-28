@@ -13,13 +13,20 @@ exports[`MovieList component renders MovieElement components 1`] = `
   data-qa="movie-list"
   styleName="list"
 >
-  <MovieElement
-    genres={Array []}
-    id={1}
+  <Link
+    href="/film/1"
     key="1"
-    poster_path=""
-    release_date=""
-    title=""
-  />
+    replace={false}
+    to="/film/1"
+  >
+    <MovieElement
+      genres={Array []}
+      id={1}
+      key="1"
+      poster_path=""
+      release_date=""
+      title=""
+    />
+  </Link>
 </div>
 `;

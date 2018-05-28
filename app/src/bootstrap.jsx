@@ -18,7 +18,8 @@ render(
       <App>
         <Switch>
           <Route path="/film/:id" component={MovieDetailsPage} />
-          <Route exact path="/" component={SearchPage} />
+          <Route path="/search/:query" component={SearchPage} />          
+          <Route path="/" component={SearchPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </App>

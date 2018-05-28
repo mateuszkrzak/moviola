@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './MovieDetailsPage.scss';
 import Logo from '../../common/components/Logo/Logo';
@@ -29,12 +30,14 @@ export class MovieDetailsPage extends React.Component {
         <main className="page-header">
           <div styleName="header-wrapper">
             <Logo />
-            <button styleName="search-button">Search</button>
+            <Link to='/' styleName="search-button">
+              Search
+            </Link>
           </div>
           <MovieDetails {...this.props.movie} />
         </main>
         <MovieListTitle genre={this.props.movie.genres.join(' & ')} />
-        <MovieList movies={this.props.similarMovies.data} />
+        <MovieList movies={this.props.similarMovies} />
       </div>
     );
   }
