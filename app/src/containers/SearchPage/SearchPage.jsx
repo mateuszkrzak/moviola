@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import * as qs from 'qs';
 
 import './SearchPage.scss';
 import Logo from '../../common/components/Logo/Logo';
@@ -12,32 +14,45 @@ import getMoviesAsync from './actions';
 
 export class SearchPage extends React.Component {
   state = {
-    searchValue: '',
+    search: '',
     searchBy: 'title',
     sortBy: '',
   };
 
-  getMovies() {
-    this.props.getMoviesAsync({
-      search: this.state.searchValue,
-      searchBy: this.state.searchBy,
-      sortBy: this.state.sortBy,
-    });
+  componentDidMount() {
+    const query = this.props.location.pathname.replace('/search/', '');
+
+    if (query !== '/') {    
+      const searchValues = qs.parse(query);        
+      this.setState(searchValues, () => this.getMovies());
+    }
   }
 
-  handleSearchValueChange = (searchValue) => {
-    this.setState({ searchValue });
+  getMovies() {
+    const searchValues = this.state;
+    this.props.getMoviesAsync(searchValues);
+
+    if (this.state.search !== '') {      
+      const suffix = this.props.match.params.query ? '' : 'search/';
+      const query = suffix + qs.stringify(searchValues);
+
+      this.props.history.push(query);
+    }
+  }
+
+  searchValueChangeHandler = (search) => {
+    this.setState({ search });
   };
 
-  handleSearchFiltersChange = (searchBy) => {
+  searchFiltersChangeHandler = (searchBy) => {
     this.setState({ searchBy });
   };
 
-  handleSearchButtonClick = () => {
+  searchActionHandler = () => {
     this.getMovies();
   };
 
-  handleSortChange = (sortBy) => {
+  sortChangeHandler = (sortBy) => {
     this.setState({ sortBy }, () => this.getMovies());
   };
 
@@ -46,11 +61,11 @@ export class SearchPage extends React.Component {
       <div className="page-wrapper">
         <main className="page-header">
           <Logo />
-          <SearchBar onChange={this.handleSearchValueChange} />
+          <SearchBar value={this.state.search} onChange={this.searchValueChangeHandler} onSubmit={this.searchActionHandler} />
           <div styleName="actions">
-            <SearchFilters onChange={this.handleSearchFiltersChange} />
+            <SearchFilters value={this.state.searchBy} onChange={this.searchFiltersChangeHandler} />
             <button
-              onClick={this.handleSearchButtonClick}
+              onClick={this.searchActionHandler}
               data-qa="search-button"
               className="standard-button"
               styleName="find-button"
@@ -59,7 +74,7 @@ export class SearchPage extends React.Component {
             </button>
           </div>
         </main>
-        <MovieListOptions onChange={this.handleSortChange} moviesCount={this.props.moviesCount} />
+        <MovieListOptions onChange={this.sortChangeHandler} moviesCount={this.props.moviesCount} />
         <MovieList movies={this.props.movies} />
       </div>
     );

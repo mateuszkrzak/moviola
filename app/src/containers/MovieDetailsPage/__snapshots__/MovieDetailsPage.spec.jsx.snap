@@ -11,11 +11,13 @@ exports[`MovieDetailsPage component  renders MovieDetailsPage 1`] = `
       styleName="header-wrapper"
     >
       <Logo />
-      <button
+      <Link
+        replace={false}
         styleName="search-button"
+        to="/"
       >
         Search
-      </button>
+      </Link>
     </div>
     <MovieElement
       genres={

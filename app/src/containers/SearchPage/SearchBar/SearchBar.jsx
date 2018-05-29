@@ -7,8 +7,14 @@ class SearchBar extends React.Component {
     value: '',
   };
 
-  onChange = (e) => {
+  onChangeHandler = (e) => {
     this.setState({ value: e.target.value }, () => this.props.onChange(this.state.value));
+  };
+
+  onKeyPressHandler = ({key}) => {
+    if (key === 'Enter') {
+      this.props.onSubmit();
+    }
   };
 
   render() {
@@ -16,7 +22,9 @@ class SearchBar extends React.Component {
       <React.Fragment>
         <h2 styleName="title">Find your movie</h2>
         <input
-          onChange={this.onChange}
+          value={this.props.value}
+          onKeyPress={this.onKeyPressHandler}
+          onChange={this.onChangeHandler}
           data-qa="search-bar"
           styleName="search-box"
           placeholder="Type something"

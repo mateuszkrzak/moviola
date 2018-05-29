@@ -14,6 +14,12 @@ module.exports = env => ({
     extensions: ['.js', '.jsx'],
   },
 
+  output: {
+    filename: '[name].bundle.js',
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/',
+  },
+
   module: {
     rules: [
       {
@@ -74,16 +80,18 @@ module.exports = env => ({
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: '#2 Webpack',
+      title: '',
       hash: true,
       template: path.resolve(__dirname, './index.html'),
     }),
   ],
+
   devServer: env.development
     ? {
       contentBase: path.join(__dirname, 'dist'),
       compress: true,
       port: 9000,
+      historyApiFallback: true,
     }
     : {},
 });

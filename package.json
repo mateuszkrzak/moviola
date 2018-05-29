@@ -21,17 +21,30 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
-    "moduleFileExtensions": ["js", "jsx"],
-    "setupFiles": ["./app/test-setup.js"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "moduleDirectories": ["./app/src", "node_modules"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupFiles": [
+      "./app/test-setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleDirectories": [
+      "./app/src",
+      "node_modules"
+    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "app/src/**/*.{js,jsx}",
       "!app/src/**/*.spec.{js,jsx}",
       "!app/src/bootstrap.jsx"
     ],
-    "coverageReporters": ["lcov", "text-summary"],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 60,
@@ -51,10 +64,12 @@
     "jest": "^22.4.3",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
+    "qs": "^6.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",

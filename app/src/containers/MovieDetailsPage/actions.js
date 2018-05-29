@@ -60,7 +60,7 @@ export default function getMovieByIdAndSimilarMoviesAsync(searchValue) {
         const { genres } = getState().details.movie;
 
         const similarMoviesResponse = await moviesService.getMoviesByGenres(genres);
-        dispatch(getMoviesByGenresSuccess(similarMoviesResponse.data));
+        dispatch(getMoviesByGenresSuccess(similarMoviesResponse.data.data));
       } catch (error) {
         dispatch(getMoviesByGenresFailure(error.message));
       }

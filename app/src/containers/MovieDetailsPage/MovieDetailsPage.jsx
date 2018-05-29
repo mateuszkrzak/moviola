@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './MovieDetailsPage.scss';
 import Logo from '../../common/components/Logo/Logo';
@@ -11,7 +12,14 @@ import getMovieByIdAndSimilarMoviesAsync from './actions';
 
 export class MovieDetailsPage extends React.Component {
   componentDidMount() {
-    this.props.getMovieByIdAndSimilarMoviesAsync(5);
+    this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
+      window.scrollTo(0, 0);
+    }
   }
 
   render() {
@@ -20,7 +28,9 @@ export class MovieDetailsPage extends React.Component {
         <main className="page-header">
           <div styleName="header-wrapper">
             <Logo />
-            <button styleName="search-button">Search</button>
+            <Link to="/" styleName="search-button">
+              Search
+            </Link>
           </div>
           <MovieDetails {...this.props.movie} />
         </main>
