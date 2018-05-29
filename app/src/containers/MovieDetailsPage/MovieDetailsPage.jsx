@@ -20,8 +20,6 @@ export class MovieDetailsPage extends React.Component {
       this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
       window.scrollTo(0, 0);
     }
-
-    return this.props.match.params.id !== prevProps.match.params.id;
   }
 
   render() {
@@ -30,7 +28,7 @@ export class MovieDetailsPage extends React.Component {
         <main className="page-header">
           <div styleName="header-wrapper">
             <Logo />
-            <Link to='/' styleName="search-button">
+            <Link to="/" styleName="search-button">
               Search
             </Link>
           </div>

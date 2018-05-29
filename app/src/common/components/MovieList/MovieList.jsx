@@ -23,7 +23,7 @@ export default class MovieList extends React.Component {
     return (
       <div data-qa="movie-list" styleName="list">
         {this.props.movies.map(movie => (
-          <Link to={`/film/${movie.id}`} key={movie.id} href={`/film/${movie.id}`}>
+          <Link to={`/film/${movie.id}`} key={movie.id}>
             <MovieElement key={movie.id} {...movie} />
           </Link>
         ))}

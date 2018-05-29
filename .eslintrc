@@ -4,7 +4,8 @@
   "plugins": ["react", "jsx-a11y", "import", "jest"],
   "rules": {
     "react/prop-types": [2, { "skipUndeclared": true }],
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "env": {
     "browser": true
