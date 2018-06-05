@@ -1,14 +1,14 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const CSSModulesFormat = '[name]_[local]__[hash:base64:5]';
 
-module.exports = env => ({
-  entry: ['babel-polyfill', './app/src/bootstrap.jsx'],
+const isDevMod = process.env.NODE_ENV === 'development';
 
-  mode: env.production ? 'production' : 'development',
+module.exports = {
+  mode: process.env.NODE_ENV,
 
-  devtool: env.development ? 'source-map' : '',
+  devtool: isDevMod ? 'source-map' : '',
 
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -78,20 +78,13 @@ module.exports = env => ({
     ],
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: '',
-      hash: true,
-      template: path.resolve(__dirname, './index.html'),
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: '',
+  //     hash: true,
+  //     template: path.resolve(__dirname, './index.html'),
+  //   }),
+  // ],
 
-  devServer: env.development
-    ? {
-      contentBase: path.join(__dirname, 'dist'),
-      compress: true,
-      port: 9000,
-      historyApiFallback: true,
-    }
-    : {},
-});
+  plugins: [isDevMod ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin()],
+};

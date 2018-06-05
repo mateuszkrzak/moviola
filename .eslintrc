@@ -8,6 +8,7 @@
     "jsx-a11y/anchor-is-valid": "off"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   }
 }
