@@ -1,11 +1,20 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Root from './Root';
+import store from './redux/store';
 
 const rootElement = document.getElementById('root');
 if (rootElement === null) {
   throw new Error('no root element');
 }
 
-render(<Root />, rootElement);
+const root = (
+  <Root
+    Router={BrowserRouter}
+    store={store}
+  />
+);
+
+hydrate(root, rootElement);

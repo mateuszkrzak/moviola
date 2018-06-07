@@ -2,15 +2,16 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import Root from './src/Root';
-import configureStore from './src/redux/store';
+import store from './src/redux/store';
+import * as qs from 'qs';
 
 function renderHTML(html, preloadedState) {
   return `
       <!doctype html>
-      <html>
+      <html lang=en>
         <head>
           <meta charset=utf-8>
-          <title>React Server Side Rendering</title>
+          <title>netflixroulette app</title>
           ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
         </head>
         <body>
@@ -28,22 +29,19 @@ function renderHTML(html, preloadedState) {
 
 export default function serverRenderer() {
   return (req, res) => {
-    // const store = configureStore();
-    // This context object contains the results of the render
     const context = {};
 
     const root = (
       <Root
-        // context={context}
-        // location={req.url}
-        // Router={StaticRouter}
-        // store={store}
+        context={context}
+        location={req.url}
+        Router={StaticRouter}
+        store={store}
       />
     );
 
     const htmlString = renderToString(root);
 
-    // context.url will contain the URL to redirect to if a <Redirect> was used
     if (context.url) {
       res.writeHead(302, {
         Location: context.url,
@@ -52,8 +50,14 @@ export default function serverRenderer() {
       return;
     }
 
-    // const preloadedState = store.getState();
+    const queryParams = req.url.replace('/search/', '');
+    const parsedQuery = qs.parse(queryParams);
+    
+    const preloadedState = {
+      ...store.getState(),
+      ...parsedQuery
+    };
 
-    res.send(renderHTML(htmlString, {}));
+    res.send(renderHTML(htmlString, preloadedState));
   };
 }

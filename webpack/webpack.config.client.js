@@ -12,6 +12,7 @@ module.exports = merge(common, {
   target: 'web',
 
   entry: [
+    'babel-polyfill',    
     isDevMod && 'webpack-hot-middleware/client',
     './app/src/bootstrap.jsx',
   ].filter(Boolean),
@@ -19,15 +20,55 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: ['env', 'react'],
+          plugins: [
+            [
+              'react-css-modules',
+              {
+                filetypes: { '.scss': { syntax: 'postcss-scss' } },
+                generateScopedName: '[name]_[local]__[hash:base64:5]',
+                webpackHotModuleReloading: true,
+              },
+            ],
+            [
+              'transform-class-properties',
+              {
+                spec: true,
+              },
+            ],
+          ],
+        },
+      },
+      {
+        test: /\.scss$/,
+        include: /app/,
+        loaders: [
+          'style-loader?sourceMap',
+          `css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]`,
+          'resolve-url-loader',
+          'sass-loader?sourceMap',
+        ],
+      },
+      {
         test: /\.css$/,
-        include: /src/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'file-loader',
           {
-            loader: 'css-loader',
+            loader: 'image-webpack-loader',
             options: {
-              modules: true,
-              localIdentName: '[name]-[hash:5]',
+              bypassOnDebug: true,
             },
           },
         ],
@@ -38,12 +79,6 @@ module.exports = merge(common, {
   plugins: [
     !isDevMod && new CleanWebpackPlugin('./public', { root: path.resolve(__dirname, '../') }),
     isDevMod && new webpack.HotModuleReplacementPlugin(),
-    /**
-     * This plugin extract CSS into separate files.
-     * It creates a CSS file per JS file which contains CSS.
-     * It supports On-Demand-Loading of CSS and SourceMaps.
-     * @link https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
-     */
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),

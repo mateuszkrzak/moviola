@@ -1,28 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
-// import 'typeface-roboto'; // eslint-disable-line
-// import 'normalize.css';
-// import './common/styles/global.scss';
+import 'normalize.css';
+import './common/styles/global.scss';
 
-// import App from './App';
-// import SearchPage from './containers/SearchPage/SearchPage';
-// import MovieDetailsPage from './containers/MovieDetailsPage/MovieDetailsPage';
-// import NotFoundPage from './containers/NotFoundPage/NotFoundPage';
-import store from './redux/store';
+import App from './App';
+import SearchPage from './containers/SearchPage/SearchPage';
+import MovieDetailsPage from './containers/MovieDetailsPage/MovieDetailsPage';
+import NotFoundPage from './containers/NotFoundPage/NotFoundPage';
 
-const Root = () => (
+const Root = ({ Router, location, context, store }) => (
   <Provider store={store}>
-    <Router>
-      {/* <App>
+    <Router location={location} context={context}>
+      <App>
         <Switch>
           <Route path="/film/:id" component={MovieDetailsPage} />
           <Route path="/search/:query" component={SearchPage} />
           <Route exact path="/" component={SearchPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
-      </App> */}
+      </App> 
     </Router>
   </Provider>
 );
