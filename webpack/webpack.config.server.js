@@ -1,8 +1,3 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const CSSModulesFormat = '[name]_[local]__[hash:base64:5]';
-
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.config.common');
@@ -16,11 +11,21 @@ module.exports = merge(common, {
     filename: 'js/serverRenderer.js',
     libraryTarget: 'commonjs2',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: '',
-      hash: true,
-      template: path.resolve(__dirname, './index.html'),
-    }),
-  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        include: /src/,
+        use: [
+          {
+            loader: 'css-loader/locals', // It doesn't embed CSS but only exports the identifier mappings.
+            options: {
+              modules: true,
+              localIdentName: '[name]-[hash:5]',
+            },
+          },
+        ],
+      },
+    ],
+  },
 });

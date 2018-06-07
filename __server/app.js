@@ -1,4 +1,6 @@
 const express = require('express');
+const clientConfig = require('../app/webpack.config.client');
+const serverConfig = require('../app/webpack.config.server');
 
 const app = express();
 
@@ -7,7 +9,7 @@ if (process.env.NODE_ENV === 'development') {
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
-  const webpackConfig = require('../webpack');
+  const webpackConfig = [clientConfig, serverConfig];
 
   const compiler = webpack(webpackConfig);
 
