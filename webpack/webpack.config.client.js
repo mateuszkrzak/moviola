@@ -12,7 +12,7 @@ module.exports = merge(common, {
   target: 'web',
 
   entry: [
-    'babel-polyfill',    
+    'babel-polyfill',
     isDevMod && 'webpack-hot-middleware/client',
     './app/src/bootstrap.jsx',
   ].filter(Boolean),
@@ -48,7 +48,7 @@ module.exports = merge(common, {
         include: /app/,
         loaders: [
           'style-loader?sourceMap',
-          `css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]`,
+          'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]',
           'resolve-url-loader',
           'sass-loader?sourceMap',
         ],
@@ -64,11 +64,10 @@ module.exports = merge(common, {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
           {
-            loader: 'image-webpack-loader',
+            loader: 'file-loader',
             options: {
-              bypassOnDebug: true,
+              publicPath: '/',
             },
           },
         ],

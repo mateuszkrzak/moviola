@@ -44,7 +44,7 @@ module.exports = merge(common, {
         test: /\.scss$/,
         include: /app/,
         loaders: [
-          `css-loader/locals?modules=true&localIdentName=[name]_[local]__[hash:base64:5]`,
+          'css-loader/locals?modules=true&localIdentName=[name]_[local]__[hash:base64:5]',
           'resolve-url-loader',
           'sass-loader?sourceMap',
         ],
@@ -66,11 +66,10 @@ module.exports = merge(common, {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
           {
-            loader: 'image-webpack-loader',
+            loader: 'file-loader',
             options: {
-              bypassOnDebug: true,
+              publicPath: '/',
             },
           },
         ],

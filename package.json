@@ -22,30 +22,17 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "setupFiles": [
-      "./app/test-setup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "moduleDirectories": [
-      "./app/src",
-      "node_modules"
-    ],
+    "moduleFileExtensions": ["js", "jsx"],
+    "setupFiles": ["./app/test-setup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "moduleDirectories": ["./app/src", "node_modules"],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "app/src/**/*.{js,jsx}",
       "!app/src/**/*.spec.{js,jsx}",
       "!app/src/bootstrap.jsx"
     ],
-    "coverageReporters": [
-      "lcov",
-      "text-summary"
-    ],
+    "coverageReporters": ["lcov", "text-summary"],
     "coverageThreshold": {
       "global": {
         "branches": 60,
@@ -77,7 +64,8 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "typeface-roboto": "0.0.54"
+    "typeface-roboto": "0.0.54",
+    "url-search-params": "^0.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
