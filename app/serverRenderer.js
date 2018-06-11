@@ -43,7 +43,7 @@ export default function serverRenderer() {
   return async (req, res) => {
     const store = { ...defaultStore };
     const context = {};
-    const root = <Root context={context} Router={StaticRouter} store={store} />;
+    const root = <Root context={context} location={req.url} Router={StaticRouter} store={store} />;
     const htmlString = renderToString(root);
 
     if (req.url.match(/\/search\//)) {
