@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.config.common');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   name: 'server',
@@ -39,40 +38,6 @@ module.exports = merge(common, {
             ],
           ],
         },
-      },
-      {
-        test: /\.scss$/,
-        include: /app/,
-        loaders: [
-          'css-loader/locals?modules=true&localIdentName=[name]_[local]__[hash:base64:5]',
-          'resolve-url-loader',
-          'sass-loader?sourceMap',
-        ],
-      },
-      {
-        test: /\.css$/,
-        include: /src/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-          },
-        ],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader',
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              publicPath: '/',
-            },
-          },
-        ],
       },
     ],
   },

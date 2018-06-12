@@ -47,15 +47,16 @@ module.exports = merge(common, {
         test: /\.scss$/,
         include: /app/,
         loaders: [
-          'style-loader?sourceMap',
+          isDevMod ? 'style-loader?sourceMap' : MiniCssExtractPlugin.loader,
           'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]__[hash:base64:5]',
           'resolve-url-loader',
           'sass-loader?sourceMap',
         ],
       },
       {
-        test: /\.css$/,
-        use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }],
+        test: /.css$/,
+        include: path.resolve('./node_modules'),
+        use: [isDevMod ? 'style-loader?sourceMap' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -76,7 +77,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    !isDevMod && new CleanWebpackPlugin('./public', { root: path.resolve(__dirname, '../') }),
+    !isDevMod && new CleanWebpackPlugin('./dist', { root: path.resolve(__dirname, './') }),
     isDevMod && new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
