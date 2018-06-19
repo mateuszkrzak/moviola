@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import * as qs from 'qs';
 
 import './SearchPage.scss';
@@ -16,7 +15,7 @@ export class SearchPage extends React.Component {
   componentDidMount() {
     const query = this.props.location.pathname.replace('/search/', '');
 
-    if (query !== '/') {    
+    if (query !== '/' && this.props.query === '') {    
       const searchValues = qs.parse(query);        
       this.props.setMoviesQuery(searchValues.search);
       this.props.setMoviesSearchBy(searchValues.searchBy);

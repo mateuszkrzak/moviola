@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import * as qs from 'qs';
 
 import Root from './src/Root';
-import defaultStore from './src/redux/store';
+import { getInitialStore } from './src/redux/store';
 import {
   setMoviesQuery,
   setMoviesSearchBy,
@@ -41,10 +41,7 @@ function renderHTML(html, preloadedState) {
 
 export default function serverRenderer() {
   return async (req, res) => {
-    const store = { ...defaultStore };
-    const context = {};
-    const root = <Root context={context} location={req.url} Router={StaticRouter} store={store} />;
-    const htmlString = renderToString(root);
+    const store = getInitialStore();
 
     if (req.url.match(/\/search\//)) {
       const queryParams = req.url.replace('/search/', '');
@@ -61,6 +58,10 @@ export default function serverRenderer() {
 
       await store.dispatch(getMovieByIdAndSimilarMoviesAsync(id));
     }
+
+    const context = {};
+    const root = <Root context={context} location={req.url} Router={StaticRouter} store={store} />;
+    const htmlString = renderToString(root);
 
     res.send(renderHTML(htmlString, store.getState()));
   };
