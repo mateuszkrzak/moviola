@@ -12,7 +12,7 @@ import getMovieByIdAndSimilarMoviesAsync from './actions';
 
 export class MovieDetailsPage extends React.Component {
   componentDidMount() {
-    if (this.props.movie.id === this.props.match.params.id) return;
+    if (Number(this.props.movie.id) === Number(this.props.match.params.id)) return;
 
     this.props.getMovieByIdAndSimilarMoviesAsync(this.props.match.params.id);
   }
