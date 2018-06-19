@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import * as qs from 'qs';
 
 import './SearchPage.scss';
@@ -10,42 +9,42 @@ import SearchFilters from './SearchFilters/SearchFilters';
 import MovieList from '../../common/components/MovieList/MovieList';
 import MovieListOptions from './MovieListOptions/MovieListOptions';
 
-import getMoviesAsync from './actions';
+import { getMoviesAsync, setMoviesQuery, setMoviesSearchBy, setMoviesSortBy } from './actions';
 
 export class SearchPage extends React.Component {
-  state = {
-    search: '',
-    searchBy: 'title',
-    sortBy: '',
-  };
-
   componentDidMount() {
     const query = this.props.location.pathname.replace('/search/', '');
 
-    if (query !== '/') {    
+    if (query !== '/' && this.props.query === '') {    
       const searchValues = qs.parse(query);        
-      this.setState(searchValues, () => this.getMovies());
-    }
+      this.props.setMoviesQuery(searchValues.search);
+      this.props.setMoviesSearchBy(searchValues.searchBy);
+      this.props.setMoviesSortBy(searchValues.sortBy);
+      this.getMovies();
+      }
   }
 
   getMovies() {
-    const searchValues = this.state;
-    this.props.getMoviesAsync(searchValues);
+    this.props.getMoviesAsync();
 
-    if (this.state.search !== '') {      
+    if (this.props.search !== '') {      
       const suffix = this.props.match.params.query ? '' : 'search/';
-      const query = suffix + qs.stringify(searchValues);
+      const query = suffix + qs.stringify({
+        search: this.props.search,
+        searchBy: this.props.searchBy,
+        sortBy: this.props.sortBy,
+      });
 
       this.props.history.push(query);
     }
   }
 
   searchValueChangeHandler = (search) => {
-    this.setState({ search });
+    this.props.setMoviesQuery(search);
   };
 
   searchFiltersChangeHandler = (searchBy) => {
-    this.setState({ searchBy });
+    this.props.setMoviesSearchBy(searchBy);
   };
 
   searchActionHandler = () => {
@@ -53,7 +52,8 @@ export class SearchPage extends React.Component {
   };
 
   sortChangeHandler = (sortBy) => {
-    this.setState({ sortBy }, () => this.getMovies());
+    this.props.setMoviesSortBy(sortBy);
+    this.getMovies();
   };
 
   render() {
@@ -61,9 +61,9 @@ export class SearchPage extends React.Component {
       <div className="page-wrapper">
         <main className="page-header">
           <Logo />
-          <SearchBar value={this.state.search} onChange={this.searchValueChangeHandler} onSubmit={this.searchActionHandler} />
+          <SearchBar value={this.props.search} onChange={this.searchValueChangeHandler} onSubmit={this.searchActionHandler} />
           <div styleName="actions">
-            <SearchFilters value={this.state.searchBy} onChange={this.searchFiltersChangeHandler} />
+            <SearchFilters value={this.props.searchBy} onChange={this.searchFiltersChangeHandler} />
             <button
               onClick={this.searchActionHandler}
               data-qa="search-button"
@@ -84,6 +84,9 @@ export class SearchPage extends React.Component {
 const mapStateToProps = state => ({
   movies: state.search.movies,
   moviesCount: state.search.moviesCount,
+  search: state.search.query,
+  searchBy: state.search.searchBy,
+  sortBy: state.search.sortBy,
 });
 
-export default connect(mapStateToProps, { getMoviesAsync })(SearchPage);
+export default connect(mapStateToProps, { getMoviesAsync, setMoviesQuery, setMoviesSearchBy, setMoviesSortBy })(SearchPage);

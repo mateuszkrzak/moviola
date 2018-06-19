@@ -8,8 +8,9 @@ import {
 } from './action-types';
 import createReducer from '../../redux/create-reducer';
 
-const initialState = {
+export const initialState = {
   movie: {
+    id: -1,
     title: '',
     release_date: '2018-01-30',
     vote_average: 0,

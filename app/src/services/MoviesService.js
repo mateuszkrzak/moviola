@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import URLSearchParams from 'url-search-params';
 
 export const API_URL = 'http://react-cdp-api.herokuapp.com/movies';
 
