@@ -1,3 +1,5 @@
+// @flow
+
 import { 
   FETCH_MOVIES_REQUEST, 
   FETCH_MOVIES_FAILURE, 
@@ -8,7 +10,31 @@ import {
 } from './action-types';
 import createReducer from '../../redux/create-reducer';
 
-const initialState = {
+export type Movie = {
+  id: number,
+  title: string,
+  tagline: string,
+  vote_average: number,
+  vote_count: number,
+  release_date: Date,
+  poster_path: string,
+  overview: string,
+  budget: number,
+  revenue: number,
+  runtime: number,
+  genres: Array<string>,
+}
+
+type SearchState = {
+  movies: Array<Movie>,
+  error: string,
+  isLoading: boolean,
+  moviesCount: number,
+  query: string,
+  sortBy: string,
+  searchBy: string,
+}
+const initialState: SearchState = {
   movies: [],
   error: '',
   isLoading: false,
@@ -18,13 +44,13 @@ const initialState = {
   searchBy: 'title'
 };
 
-const fetchMoviesRequest = state => ({ ...state, isLoading: true });
-const fetchMoviesFailure = (state, payload) => ({
+const fetchMoviesRequest = (state: SearchState): SearchState => ({ ...state, isLoading: true });
+const fetchMoviesFailure = (state: SearchState, payload: string): SearchState => ({
   ...state,
   isLoading: false,
   error: payload,
 });
-const fetchMoviesSuccess = (state, payload) => ({
+const fetchMoviesSuccess = (state: SearchState, payload: { movies: Array<Movie>, moviesCount: number }): SearchState => ({
   ...state,
   movies: [...payload.movies],
   moviesCount: payload.moviesCount,
@@ -32,15 +58,15 @@ const fetchMoviesSuccess = (state, payload) => ({
   error: '',
 });
 
-const setMoviesQuery = (state, payload) => ({
+const setMoviesQuery = (state: SearchState, payload: string): SearchState => ({
   ...state,
   query: payload
 })
-const setMoviesSortBy = (state, payload) => ({
+const setMoviesSortBy = (state: SearchState, payload: string): SearchState => ({
   ...state,
   sortBy: payload
 })
-const setMoviesSearchBy = (state, payload) => ({
+const setMoviesSearchBy = (state: SearchState, payload: string): SearchState => ({
   ...state,
   searchBy: payload
 })

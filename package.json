@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node ./server",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack && flow",
     "prod": "cross-env NODE_ENV=production node ./server",
+    "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
     "e2e": "cypress open"
@@ -22,17 +23,30 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
-    "moduleFileExtensions": ["js", "jsx"],
-    "setupFiles": ["./app/test-setup.js"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "moduleDirectories": ["./app/src", "node_modules"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupFiles": [
+      "./app/test-setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleDirectories": [
+      "./app/src",
+      "node_modules"
+    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "app/src/**/*.{js,jsx}",
       "!app/src/**/*.spec.{js,jsx}",
       "!app/src/bootstrap.jsx"
     ],
-    "coverageReporters": ["lcov", "text-summary"],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 60,
@@ -75,6 +89,7 @@
     "babel-plugin-react-css-modules": "^3.4.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.11",
@@ -86,6 +101,7 @@
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "7.4.0",
     "file-loader": "^1.1.11",
+    "flow-bin": "^0.75.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^4.2.0",
