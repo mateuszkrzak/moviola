@@ -10,30 +10,31 @@ import {
 } from './action-types';
 import createReducer from '../../redux/create-reducer';
 
-export type Movie = {
-  id: number,
-  title: string,
-  tagline: string,
-  vote_average: number,
-  vote_count: number,
-  release_date: Date,
-  poster_path: string,
-  overview: string,
-  budget: number,
-  revenue: number,
-  runtime: number,
-  genres: Array<string>,
-}
+export type Movie = {|
+  +id: number,
+  +title: string,
+  +tagline: string,
+  +vote_average: number,
+  +vote_count: number,
+  +release_date: Date,
+  +poster_path: string,
+  +overview: string,
+  +budget: number,
+  +revenue: number,
+  +runtime: number,
+  +genres: Array<string>,
+|};
 
-type SearchState = {
-  movies: Array<Movie>,
-  error: string,
-  isLoading: boolean,
-  moviesCount: number,
-  query: string,
-  sortBy: string,
-  searchBy: string,
-}
+type SearchState = {|
+  +movies: Array<Movie>,
+  +error: string,
+  +isLoading: boolean,
+  +moviesCount: number,
+  +query: string,
+  +sortBy: string,
+  +searchBy: string,
+|};
+
 const initialState: SearchState = {
   movies: [],
   error: '',

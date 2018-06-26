@@ -1,5 +1,6 @@
 [ignore]
-.*/node_modules
+.*/node_modules/cypress/*
+.*/node_modules/config-chain/*
 [include]
 
 [libs]
@@ -7,5 +8,5 @@
 [lints]
 
 [options]
-
+module.file_ext=.scss
 [strict]
