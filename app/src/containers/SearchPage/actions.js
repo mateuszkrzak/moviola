@@ -1,5 +1,4 @@
 // @flow
-
 import moviesService from '../../services/MoviesService';
 import type { Movie } from './reducer';
 import { 
@@ -25,15 +24,15 @@ type FetchMoviesSuccessAction = {|
     +moviesCount: number
   } 
 |};
-export type SetMoviesQueryAction = {|
+type SetMoviesQueryAction = {|
   +type: typeof SET_MOVIES_QUERY, 
   +payload: string 
 |};
-export type SetMoviesSortByAction = {|
+type SetMoviesSortByAction = {|
   +type: typeof SET_MOVIES_SORT_BY, 
   +payload: string 
 |};
-export type SetMoviesSearchByAction = {|
+type SetMoviesSearchByAction = {|
   +type: typeof SET_MOVIES_SEARCH_BY, 
   +payload: string 
 |};
@@ -51,8 +50,6 @@ function getMoviesFailure(error: string): FetchMoviesFailureAction {
   };
 }
 
-
-
 function getMoviesSuccess({ data, total }: *): FetchMoviesSuccessAction {
   return {
     type: FETCH_MOVIES_SUCCESS,
@@ -64,7 +61,7 @@ function getMoviesSuccess({ data, total }: *): FetchMoviesSuccessAction {
 }
 
 function getMoviesAsync() {
-  return async (dispatch, getState) => {
+  return async (dispatch: any, getState: any) => {
     dispatch(getMoviesRequest());
     try {
       const { query, searchBy, sortBy } = getState().search;
