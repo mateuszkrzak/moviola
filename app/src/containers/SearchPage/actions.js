@@ -40,7 +40,7 @@ export type SetMoviesSearchByAction = {|
 
 function getMoviesRequest(): FetchMoviesRequestAction {
   return {
-    type: FETCH_MOVIES_FAILURE,
+    type: FETCH_MOVIES_REQUEST,
   };
 }
 
