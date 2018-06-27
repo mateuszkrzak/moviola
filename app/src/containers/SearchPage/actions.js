@@ -25,15 +25,15 @@ type FetchMoviesSuccessAction = {|
     +moviesCount: number
   } 
 |};
-export type SetMoviesQueryAction = {|
+type SetMoviesQueryAction = {|
   +type: typeof SET_MOVIES_QUERY, 
   +payload: string 
 |};
-export type SetMoviesSortByAction = {|
+type SetMoviesSortByAction = {|
   +type: typeof SET_MOVIES_SORT_BY, 
   +payload: string 
 |};
-export type SetMoviesSearchByAction = {|
+type SetMoviesSearchByAction = {|
   +type: typeof SET_MOVIES_SEARCH_BY, 
   +payload: string 
 |};
