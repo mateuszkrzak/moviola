@@ -64,7 +64,7 @@ function getMoviesSuccess({ data, total }: *): FetchMoviesSuccessAction {
 }
 
 function getMoviesAsync() {
-  return async (dispatch, getState) => {
+  return async (dispatch: any, getState: any) => {
     dispatch(getMoviesRequest());
     try {
       const { query, searchBy, sortBy } = getState().search;

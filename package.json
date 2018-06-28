@@ -13,7 +13,9 @@
     "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "start-storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "transform": {
@@ -122,6 +124,11 @@
     "webpack-hot-middleware": "^2.22.2",
     "webpack-hot-server-middleware": "^0.5.0",
     "webpack-merge": "^4.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "@storybook/react": "^4.0.0-alpha.10",
+    "@storybook/addon-actions": "^4.0.0-alpha.10",
+    "@storybook/addon-links": "^4.0.0-alpha.10",
+    "@storybook/addons": "^4.0.0-alpha.10",
+    "babel-runtime": "^7.0.0-beta.3"
   }
 }
