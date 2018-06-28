@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
 import * as qs from 'qs';
@@ -11,7 +13,31 @@ import MovieListOptions from './MovieListOptions/MovieListOptions';
 
 import { getMoviesAsync, setMoviesQuery, setMoviesSearchBy, setMoviesSortBy } from './actions';
 
-export class SearchPage extends React.Component {
+import type { Movie } from './reducer';
+import type { Location, Match, RouterHistory } from 'react-router';
+
+type RouterProps = {|
+  +location: Location,
+  +match: Match,
+  +history: RouterHistory,
+  +query: string,
+|}
+type StoreProps = {|
+  +search: string,
+  +searchBy: string,
+  +sortBy: string,
+  +movies: Movie,
+  +moviesCount: number,
+|}
+type ActionProps = {|
+  +setMoviesQuery: (string) => typeof setMoviesQuery,
+  +setMoviesSearchBy: (string) => typeof setMoviesSearchBy,
+  +setMoviesSortBy: (string) => typeof setMoviesSortBy,
+  +getMoviesAsync: () => typeof getMoviesAsync,
+|}
+type Props = RouterProps & StoreProps & ActionProps;
+
+export class SearchPage extends React.Component<Props> {
   componentDidMount() {
     const query = this.props.location.pathname.replace('/search/', '');
 
@@ -39,11 +65,11 @@ export class SearchPage extends React.Component {
     }
   }
 
-  searchValueChangeHandler = (search) => {
+  searchValueChangeHandler = (search: string) => {
     this.props.setMoviesQuery(search);
   };
 
-  searchFiltersChangeHandler = (searchBy) => {
+  searchFiltersChangeHandler = (searchBy: string) => {
     this.props.setMoviesSearchBy(searchBy);
   };
 
@@ -51,7 +77,7 @@ export class SearchPage extends React.Component {
     this.getMovies();
   };
 
-  sortChangeHandler = (sortBy) => {
+  sortChangeHandler = (sortBy: string) => {
     this.props.setMoviesSortBy(sortBy);
     this.getMovies();
   };

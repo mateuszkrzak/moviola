@@ -1,35 +1,70 @@
-import {
-  FETCH_MOVIES_REQUEST,
-  FETCH_MOVIES_FAILURE,
-  FETCH_MOVIES_SUCCESS,
-  SET_MOVIES_QUERY,
-  SET_MOVIES_SORT_BY,
+// @flow
+
+import moviesService from '../../services/MoviesService';
+import type { Movie } from './reducer';
+import { 
+  FETCH_MOVIES_FAILURE, 
+  FETCH_MOVIES_REQUEST, 
+  FETCH_MOVIES_SUCCESS, 
+  SET_MOVIES_QUERY, 
+  SET_MOVIES_SORT_BY, 
   SET_MOVIES_SEARCH_BY,
 } from './action-types';
-import moviesService from '../../services/MoviesService';
 
-function getMoviesRequest() {
+type FetchMoviesRequestAction = {| 
+  +type: typeof FETCH_MOVIES_REQUEST 
+|};
+type FetchMoviesFailureAction = {| 
+  +type: typeof FETCH_MOVIES_FAILURE, 
+  +payload: string 
+|};
+type FetchMoviesSuccessAction = {| 
+  +type: typeof FETCH_MOVIES_SUCCESS, 
+  +payload: { 
+    +movies: Array<Movie>,
+    +moviesCount: number
+  } 
+|};
+type SetMoviesQueryAction = {|
+  +type: typeof SET_MOVIES_QUERY, 
+  +payload: string 
+|};
+type SetMoviesSortByAction = {|
+  +type: typeof SET_MOVIES_SORT_BY, 
+  +payload: string 
+|};
+type SetMoviesSearchByAction = {|
+  +type: typeof SET_MOVIES_SEARCH_BY, 
+  +payload: string 
+|};
+
+function getMoviesRequest(): FetchMoviesRequestAction {
   return {
     type: FETCH_MOVIES_REQUEST,
   };
 }
 
-function getMoviesFailure(error) {
+function getMoviesFailure(error: string): FetchMoviesFailureAction {
   return {
     type: FETCH_MOVIES_FAILURE,
     payload: error,
   };
 }
 
-function getMoviesSuccess(data) {
+
+
+function getMoviesSuccess({ data, total }: *): FetchMoviesSuccessAction {
   return {
     type: FETCH_MOVIES_SUCCESS,
-    payload: { movies: data.data, moviesCount: data.total },
+    payload: { 
+      movies: data, 
+      moviesCount: total,
+    },
   };
 }
 
 function getMoviesAsync() {
-  return async (dispatch, getState) => {
+  return async (dispatch: any, getState: any) => {
     dispatch(getMoviesRequest());
     try {
       const { query, searchBy, sortBy } = getState().search;
@@ -41,19 +76,19 @@ function getMoviesAsync() {
   };
 }
 
-function setMoviesQuery(query) {
+function setMoviesQuery(query: string): SetMoviesQueryAction {
   return {
     type: SET_MOVIES_QUERY,
     payload: query,
   };
 }
-function setMoviesSortBy(sortBy) {
+function setMoviesSortBy(sortBy: string): SetMoviesSortByAction {
   return {
     type: SET_MOVIES_SORT_BY,
     payload: sortBy,
   };
 }
-function setMoviesSearchBy(searchBy) {
+function setMoviesSearchBy(searchBy: string): SetMoviesSearchByAction {
   return {
     type: SET_MOVIES_SEARCH_BY,
     payload: searchBy,
